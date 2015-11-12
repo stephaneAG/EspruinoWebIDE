@@ -22,7 +22,7 @@
       case "code": // Tef edit: when passing "encodedURIcomponent code" within the URL
         Espruino.Core.EditorJavaScript.setCode(val);
         break;
-      case "codefile":
+      case "codefile": // Tef edit: ADDITION: when passing a file URL within the URL :)
         $.ajax({ url: val, cache: false }).done(function( data ) { 
           Espruino.Core.EditorJavaScript.setCode(data);
         });
