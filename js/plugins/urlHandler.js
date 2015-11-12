@@ -19,8 +19,13 @@
   function handleQuery(key, val) {
     Espruino.Core.Code.switchToCode(); // if in blockly
     switch(key){
-      case "code":
+      case "code": // Tef edit: when passing "encodedURIcomponent code" within the URL
         Espruino.Core.EditorJavaScript.setCode(val);
+        break;
+      case "codefile": 
+        $.ajax({ url: val, cache: false }).done(function( data ) { 
+         Espruino.Core.EditorJavaScript.setCode(data);
+        });
         break;
       case "upload":
         Espruino.Core.MenuPortSelector.ensureConnected(function() {
